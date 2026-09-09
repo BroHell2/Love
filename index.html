@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="theme-color" content="#f7f4ec">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <title>Вопрос для тебя</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="main-wrapper">
+    <!-- СЛАЙД 1 -->
+    <section class="card slide-card active" id="slide-1">
+      <div class="card-header">
+        <h1 class="question-title">Хочешь ли стать моей девушкой?</h1>
+      </div>
+
+      <div class="photo-frame single-photo">
+        <img src="images/banana.png" alt="Фотография" id="photo-slide-1" width="480" height="270" loading="eager">
+      </div>
+
+      <div class="actions-container" id="actions-slide-1">
+        <button type="button" class="btn btn-yes" id="btn-yes-1">
+          <svg class="btn-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="20 6 9 17 4 12"></polyline>
+          </svg>
+          <span>ДА</span>
+        </button>
+        <button type="button" class="btn btn-no" id="btn-no-1">
+          <svg class="btn-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+          <span>НЕТ</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- СЛАЙД 2: ФОТО В ОДИН РЯД -->
+    <section class="card slide-card wide-card" id="slide-2">
+      <div class="card-header">
+        <h1 class="question-title">А теперь, увидев меня, точно не передумала?</h1>
+      </div>
+
+      <!-- Фотографии строго в один ряд (3 фото) -->
+      <div class="photos-row-3">
+        <div class="photo-item-col">
+          <div class="photo-inner">
+            <img src="images/photo2.png" alt="Моё фото 1" loading="eager">
+          </div>
+        </div>
+        <div class="photo-item-col">
+          <div class="photo-inner">
+            <img src="images/photo3.png" alt="Моё фото 2" loading="eager">
+          </div>
+        </div>
+        <div class="photo-item-col">
+          <div class="photo-inner">
+            <img src="images/photo4.png" alt="Моё фото 3" loading="eager">
+          </div>
+        </div>
+      </div>
+
+      <div class="actions-container" id="actions-slide-2">
+        <button type="button" class="btn btn-yes btn-yes-pulse" id="btn-yes-2">
+          <svg class="btn-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+          </svg>
+          <span>ДА</span>
+        </button>
+        <button type="button" class="btn btn-no btn-no-normal" id="btn-no-2">
+          <svg class="btn-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+          <span>НЕТ</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- СЛАЙД РЕЗУЛЬТАТА -->
+    <section class="card slide-card result-card" id="slide-result">
+      <div class="result-badge-icon" id="result-svg-container"></div>
+      <h1 class="result-heading" id="result-heading"></h1>
+      <p class="lock-notice" id="lock-notice" style="display: none;">Ответ зафиксирован для вашего устройства</p>
+
+      <button type="button" class="btn btn-return" id="btn-return">
+        <span>В начало</span>
+      </button>
+    </section>
+
+    <!-- Скрытая строка кода для входа в меню ответов -->
+    <footer class="footer-code-area">
+      <span class="code-line-trigger" id="code-line-trigger" title="Нажмите для проверки кода">
+        <code>&gt; dev.sys_status: 200_OK // [auth]</code>
+      </span>
+    </footer>
+
+    <!-- Секретная кнопка меню ответов (появляется после ввода HELL) -->
+    <button type="button" class="secret-admin-trigger" id="secret-admin-trigger" style="display: none;">
+      <svg class="btn-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+        <polyline points="14 2 14 8 20 8"></polyline>
+        <line x1="16" y1="13" x2="8" y2="13"></line>
+        <line x1="16" y1="17" x2="8" y2="17"></line>
+        <polyline points="10 9 9 9 8 9"></polyline>
+      </svg>
+      <span>Ответы (HELL)</span>
+    </button>
+
+    <!-- Модальное окно ответов (Админ-меню со списком IP и кнопками сброса) -->
+    <div class="admin-modal" id="admin-modal">
+      <div class="admin-modal-content">
+        <div class="admin-modal-header">
+          <div class="admin-title-row">
+            <svg class="admin-header-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+              <line x1="8" y1="21" x2="16" y2="21"></line>
+              <line x1="12" y1="17" x2="12" y2="21"></line>
+            </svg>
+            <h2>Журнал IP и ответов</h2>
+          </div>
+          <button type="button" class="admin-close-btn" id="admin-close-btn">&times;</button>
+        </div>
+        
+        <div class="admin-modal-body">
+          <div class="admin-stats-summary" id="admin-stats-summary"></div>
+          <div class="admin-table-wrapper">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>IP Адрес</th>
+                  <th>Статус</th>
+                  <th>Ответ</th>
+                  <th>Время</th>
+                  <th>Устройство</th>
+                  <th>Действие</th>
+                </tr>
+              </thead>
+              <tbody id="answers-table-body">
+                <!-- Заполняется JS -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="admin-modal-footer">
+          <button type="button" class="btn btn-clear-data" id="btn-clear-data">Очистить всю базу</button>
+          <button type="button" class="btn btn-close-admin" id="btn-close-admin">Закрыть</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
